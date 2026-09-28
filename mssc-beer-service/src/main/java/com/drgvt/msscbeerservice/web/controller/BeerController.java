@@ -27,6 +27,7 @@ public class BeerController {
 
     @PutMapping("{beerId}")
     public ResponseEntity updateBeerById(@PathVariable("beerId") UUID beerID) {
+        // todo impl
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }
