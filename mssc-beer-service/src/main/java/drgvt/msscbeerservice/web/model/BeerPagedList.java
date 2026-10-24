@@ -1,4 +1,4 @@
-package com.drgvt.msscbeerservice.web.model;/*
+package drgvt.msscbeerservice.web.model;/*
  Created by KonstantinAndrievski on 9/26/2026.
  */
 

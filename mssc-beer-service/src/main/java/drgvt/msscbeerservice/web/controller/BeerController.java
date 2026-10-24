@@ -1,8 +1,8 @@
-package com.drgvt.msscbeerservice.web.controller;/*
+package drgvt.msscbeerservice.web.controller;/*
  Created by KonstantinAndrievski on 9/28/2026.
  */
 
-import com.drgvt.msscbeerservice.web.model.BeerDto;
+import drgvt.msscbeerservice.web.model.BeerDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

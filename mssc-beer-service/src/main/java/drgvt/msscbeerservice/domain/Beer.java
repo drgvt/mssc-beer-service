@@ -1,4 +1,4 @@
-package com.drgvt.msscbeerservice.domain;/*
+package drgvt.msscbeerservice.domain;/*
  Created by KonstantinAndrievski on 10/18/2026.
  */
 

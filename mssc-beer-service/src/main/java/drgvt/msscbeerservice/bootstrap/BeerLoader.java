@@ -1,9 +1,9 @@
-package com.drgvt.msscbeerservice.bootstrap;/*
+package drgvt.msscbeerservice.bootstrap;/*
  Created by KonstantinAndrievski on 10/18/2026.
  */
 
-import com.drgvt.msscbeerservice.domain.Beer;
-import com.drgvt.msscbeerservice.respositories.BeerRepository;
+import drgvt.msscbeerservice.domain.Beer;
+import drgvt.msscbeerservice.respositories.BeerRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

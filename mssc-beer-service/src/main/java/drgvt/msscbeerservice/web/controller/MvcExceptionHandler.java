@@ -1,4 +1,4 @@
-package com.drgvt.msscbeerservice.web.controller;/*
+package drgvt.msscbeerservice.web.controller;/*
  Created by KonstantinAndrievski on 10/21/2026.
  */
 
