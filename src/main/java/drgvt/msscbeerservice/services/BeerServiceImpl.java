@@ -7,6 +7,7 @@ import drgvt.msscbeerservice.web.model.BeerDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
@@ -15,6 +16,7 @@ import java.util.UUID;
  */
 
 @RequiredArgsConstructor
+@Service
 public class BeerServiceImpl implements BeerService {
 
     BeerMapper beerMapper;

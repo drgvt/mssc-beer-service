@@ -1,11 +1,14 @@
 package drgvt.msscbeerservice.web.controller;
 
+import drgvt.msscbeerservice.bootstrap.BeerLoader;
+import drgvt.msscbeerservice.services.BeerService;
 import drgvt.msscbeerservice.web.model.BeerDto;
 import drgvt.msscbeerservice.web.model.BeerStyleEnum;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
 
@@ -23,6 +26,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(BeerController.class)
 class BeerControllerTest {
 
+
+    @MockitoBean
+    BeerService beerService;
 
     @Autowired
     MockMvc mockMvc;
@@ -73,7 +79,7 @@ class BeerControllerTest {
                 .beerName("My Beer")
                 .beerStyle(BeerStyleEnum.ALE)
                 .price(new BigDecimal("2.99"))
-                .upc(123123123123L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .build();
     }
 }
