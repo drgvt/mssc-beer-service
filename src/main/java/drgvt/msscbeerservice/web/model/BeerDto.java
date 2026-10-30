@@ -2,6 +2,7 @@ package drgvt.msscbeerservice.web.model;/*
  Created by KonstantinAndrievski on 9/26/2026.
  */
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
@@ -24,9 +25,13 @@ public class BeerDto {
     private UUID id;
     @Null
     private Integer version;
+
     @Null
+    @JsonFormat(pattern="yyyy-MM-dd'I'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
     private OffsetDateTime createdDate;
+
     @Null
+    @JsonFormat(pattern="yyyy-MM-dd'I'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
     private OffsetDateTime lastModifiedDate;
 
     @NotBlank
@@ -39,6 +44,7 @@ public class BeerDto {
     @NotNull
     private Long upc;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     @Positive
     @NotNull
     private BigDecimal price;
