@@ -4,15 +4,21 @@ import guru.sfg.brewery.model.BeerDto;
 import guru.sfg.brewery.model.BeerStyleEnum;
 import guru.springframework.msscbeerservice.domain.Beer;
 import javax.annotation.processing.Generated;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-11-24T14:02:16+0300",
+    date = "2026-11-24T19:13:54+0300",
     comments = "version: 1.6.3, compiler: javac, environment: Java 21 (Amazon.com Inc.)"
 )
+@Component
+@Qualifier("delegate")
 public class BeerMapperImpl_ implements BeerMapper {
 
-    private final DateMapper dateMapper = new DateMapper();
+    @Autowired
+    private DateMapper dateMapper;
 
     @Override
     public BeerDto beerToBeerDto(Beer beer) {
