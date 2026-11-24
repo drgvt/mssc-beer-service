@@ -24,7 +24,7 @@
         <!--set this to your docker acct name-->
         <docker.image.prefix>sfgbeerworks</docker.image.prefix>
         <!--Set to name of project-->
-        <docker.image.name>${artifactId}</docker.image.name>
+        <docker.image.name>${project.artifactId}</docker.image.name>
         <maven.compiler.proc>full</maven.compiler.proc>
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <lombok.version>1.18.48</lombok.version>

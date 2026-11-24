@@ -1,10 +1,9 @@
 package guru.springframework.msscbeerservice.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.*;
+
+import jakarta.persistence.*;
 import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
@@ -48,4 +47,6 @@ public class Beer {
 
     private Integer minOnHand;
     private Integer quantityToBrew;
+
+
 }
