@@ -26,6 +26,12 @@ public class BeerServiceImpl implements BeerService {
     private final BeerRepository beerRepository;
     private final BeerMapper beerMapper;
 
+    /*
+     * Аннотация @Cacheable указывает Spring сохранять результат выполнения метода
+     * в кэше с именем "beerListCache" при условии showInventoryOnHand == false,
+     * чтобы при повторных вызовах с теми же аргументами сразу возвращать готовые
+     * данные из памяти без обращения к базе данных.
+     */
     @Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnHand == false ")
     @Override
     public BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest pageRequest, Boolean showInventoryOnHand) {
@@ -33,6 +39,11 @@ public class BeerServiceImpl implements BeerService {
         BeerPagedList beerPagedList;
         Page<Beer> beerPage;
 
+        /*
+         * Проверяет, передал ли клиент одновременно оба параметра фильтрации
+         * (и название пива beerName, и его стиль beerStyle), чтобы выбрать в
+         * базе данных записи, соответствующие обоим критериям сразу
+         */
         if (!StringUtils.isEmpty(beerName) && !StringUtils.isEmpty(beerStyle)) {
             //search both
             beerPage = beerRepository.findAllByBeerNameAndBeerStyle(beerName, beerStyle, pageRequest);
@@ -52,6 +63,11 @@ public class BeerServiceImpl implements BeerService {
                     .stream()
                     .map(beerMapper::beerToBeerDtoWithInventory)
                     .collect(Collectors.toList()),
+                    /*
+                     * Эти строки извлекают из результата запроса beerPage номер текущей
+                     * страницы, размер страницы и общее количество элементов во всей базе
+                     * данных, чтобы передать метаданные пагинации в конструктор BeerPagedList.
+                     */
                     PageRequest
                             .of(beerPage.getPageable().getPageNumber(),
                                     beerPage.getPageable().getPageSize()),

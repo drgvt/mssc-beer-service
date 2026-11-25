@@ -14,6 +14,12 @@ public interface BeerMapper {
 
     BeerDto beerToBeerDto(Beer beer);
 
+    /**
+     * преобразует сущность Beer из базы данных в DTO-объект BeerDto и
+     * дополнительно запрашивает у внешнего сервиса инвентаризации
+     * (BeerInventoryService) актуальное количество данного пива на складе,
+     * записывая его в поле quantityOnHand
+     */
     BeerDto beerToBeerDtoWithInventory(Beer beer);
 
     Beer beerDtoToBeer(BeerDto dto);
