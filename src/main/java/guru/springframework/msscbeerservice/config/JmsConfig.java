@@ -1,3 +1,10 @@
+/*
+ * Этот класс задаёт константы с именами JMS-очередей и настраивает JSON-конвертер
+ * MappingJackson2MessageConverter, который автоматически сериализует отправляемые
+ * Java-объекты в текстовый JSON и добавляет заголовок _type с именем класса, чтобы
+ * принимающий сервис знал, в какой DTO десериализовать сообщение.
+ */
+
 package guru.springframework.msscbeerservice.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

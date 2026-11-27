@@ -20,7 +20,7 @@ public class BeerLoader implements CommandLineRunner {
     public static final String BEER_2_UPC = "0631234300019";
     public static final String BEER_3_UPC = "0083783375213";
 
-    private final BeerRepository beerRepository;
+    private final BeerRepository beerRepository; // @Autowired не используется, т.к. Lombok сам об этом беспокоится при @RequiredArgsConstructor
 
     @Override
     public void run(String... args) throws Exception {

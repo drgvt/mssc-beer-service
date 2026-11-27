@@ -1,3 +1,10 @@
+/*
+ * Этот конфигурационный класс включает в Spring поддержку асинхронного выполнения
+ * задач (@EnableAsync) и фоновых задач по расписанию (@EnableScheduling — для периодической
+ * проверки остатков и запуска варки пива в BrewingService), а также создаёт SimpleAsyncTaskExecutor,
+ * чтобы каждая асинхронная задача запускалась в отдельном потоке.
+ */
+
 package guru.springframework.msscbeerservice.config;
 
 import org.springframework.context.annotation.Bean;
@@ -13,10 +20,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 @EnableScheduling
 @Configuration
-public class TaskConfig {
+public class TaskConfig { // Класс конфигурации фоновых и асинхронных задач
 
-    @Bean
-    TaskExecutor taskExecutor(){
-        return new SimpleAsyncTaskExecutor();
+    @Bean // Регистрирует возвращаемый объект в контейнере Spring
+    TaskExecutor taskExecutor(){ // Метод создания исполнителя (пула) потоков
+        return new SimpleAsyncTaskExecutor(); // Создаёт исполнитель, запускающий каждую задачу в новом отдельном потоке
     }
 }
